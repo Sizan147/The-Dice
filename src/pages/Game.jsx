@@ -33,7 +33,11 @@ export const Game = ()=>{
         console.log("matched", rNRef.current)
         setScore((prev)=> prev + pick)
       }
+      else{
+        setScore((prev)=> prev - Number((pick/5).toFixed(2)))
+      }
     }, 1500)
+    setPick(0)
   }
 
   // Starting random number
