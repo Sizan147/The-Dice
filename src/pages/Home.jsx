@@ -12,7 +12,7 @@ export const Home = ()=>{
   return(
     <div className="section-home">
       <figure>
-        <img src="The-Dice/public/images/dices.png" alt="icon" />
+        <img src="./images/dices.png" alt="icon" />
       </figure>
       <div className="texts">
         <h2 style={blink? {} : {borderColor: 'transparent'}} >DICE GAME</h2>
