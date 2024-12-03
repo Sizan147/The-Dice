@@ -157,6 +157,31 @@ button{
 }
 /* End Game Section  */
 
+.credit{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  p{
+    font-size: 1.4rem;
+
+    a{
+      font-size: 1.6rem;
+      color: #003c80;
+      font-weight: 700;
+    }
+  }
+  button{
+    font-size: 1.4rem;
+    padding: .5rem 2rem;
+
+    &:hover{
+      background-color: var(--black);
+      color: var(--white);
+    }
+  }
+}
+
 /* Media Section  */
 @media (width < 1200px ){
   html{

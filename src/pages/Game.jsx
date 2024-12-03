@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { Rules } from "../components/Rules"
 import { TopSection } from "../components/TopSection"
 import { BottomSection } from "../components/BottomSection"
+import { Credit } from "../components/Credit"
 
 export const Game = ()=>{
   const [ showRules, setShowRules ] = useState(false)
@@ -55,13 +56,25 @@ export const Game = ()=>{
 
   // setting
 
-  return(
-    <div className="section-game">
-      <TopSection score={score} warning={warning} pick={pick} setPick={setPick} />
-
-      <BottomSection rN={rN} handleDiceClick={handleDiceClick} setScore={setScore} setShowRules={setShowRules} showRules={showRules} />
-
-      <Rules showRules={showRules}/>
-    </div>
-  )
+  return (
+    <>
+      <div className="section-game">
+        <TopSection
+          score={score}
+          warning={warning}
+          pick={pick}
+          setPick={setPick}
+        />
+        <BottomSection
+          rN={rN}
+          handleDiceClick={handleDiceClick}
+          setScore={setScore}
+          setShowRules={setShowRules}
+          showRules={showRules}
+        />
+        <Rules showRules={showRules} />
+      </div>
+      <Credit />
+    </>
+  );
 }
