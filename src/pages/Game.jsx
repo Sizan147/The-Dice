@@ -9,7 +9,6 @@ export const Game = ()=>{
   const [ pick, setPick ] = useState(0)
   const [ rN, setRN ] = useState(0)
   const [ score, setScore ] = useState(0)
-  const [ finalNum, setFinalNum ] = useState()
   const rNRef = useRef(null);
   const [ warning, setWarning ] = useState(false)
 
@@ -54,7 +53,16 @@ export const Game = ()=>{
     
   }, [rN])
 
-  // setting
+  // Load images
+  useEffect(() => {
+    const diceImages = [1, 2, 3, 4, 5, 6].map(
+      (num) => `./images/dice/dice_${num}.png`
+    );
+    diceImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <>
