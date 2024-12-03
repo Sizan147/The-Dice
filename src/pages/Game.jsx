@@ -1,0 +1,67 @@
+import { useEffect, useRef, useState } from "react"
+import { Rules } from "../components/Rules"
+import { TopSection } from "../components/TopSection"
+import { BottomSection } from "../components/BottomSection"
+
+export const Game = ()=>{
+  const [ showRules, setShowRules ] = useState(false)
+  const [ pick, setPick ] = useState(0)
+  const [ rN, setRN ] = useState(0)
+  const [ score, setScore ] = useState(0)
+  const [ finalNum, setFinalNum ] = useState()
+  const rNRef = useRef(null);
+  const [ warning, setWarning ] = useState(false)
+
+  // Dice Rolling
+  const randomNumber = ()=>{
+    let numbers = [ 1, 2, 3, 4, 5, 6 ]
+    const res = numbers[Math.floor(Math.random()* numbers.length)]
+    setRN(res)
+    rNRef.current = res
+  }
+  const handleDiceClick = ()=>{
+    if(pick == 0){
+      setWarning(true)
+      return
+    }
+    const diceRolling = setInterval(()=>{
+      randomNumber()
+    }, 100)
+    setTimeout(()=>{
+      clearInterval( diceRolling)
+      if (pick === rNRef.current){
+        console.log("matched", rNRef.current)
+        setScore((prev)=> prev + pick)
+      }
+    }, 1500)
+  }
+
+  // Starting random number
+  useEffect(()=>{
+    randomNumber()
+  }, [])
+
+  // Choose
+  useEffect(()=>{
+    if(pick){
+      setWarning(false)
+    }
+  }, [pick])
+   
+  // Score
+  useEffect(()=>{
+    
+  }, [rN])
+
+  // setting
+
+  return(
+    <div className="section-game">
+      <TopSection score={score} warning={warning} pick={pick} setPick={setPick} />
+
+      <BottomSection rN={rN} handleDiceClick={handleDiceClick} setScore={setScore} setShowRules={setShowRules} showRules={showRules} />
+
+      <Rules showRules={showRules}/>
+    </div>
+  )
+}

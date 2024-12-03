@@ -1,0 +1,268 @@
+:root{
+  --red: ;
+  --black: #000000;
+  --white: #ffffff;
+  --off-white: #d1d1d1;
+  --gray: #202020;
+}
+body{
+  font-size: 1.6rem;
+}
+button{
+  padding: 1.5rem 9rem;
+  border-radius: .5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+/* Home Section  */
+.section-home{
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  figure img{
+    width: 100%;
+  }
+  .texts{
+    display: flex;
+    flex-direction: column;
+
+    h2{
+      font-size: 10rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      white-space: nowrap;
+
+      /* margin-inline: auto; */
+      width: 100%;
+      overflow: hidden;
+      border-right: 1px solid var(--black);
+      animation: typing 1.5s steps(9), blink .4s step-end infinite;
+    }
+    button{
+      background-color: #000000;
+      color: var(--white);
+      margin-left: auto;
+    }
+  }
+}
+/* End Home Section  */
+
+/* Game Section  */
+.section-game{
+  padding-inline: 8rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 101svh;
+
+  .top-section{
+    display: flex;
+    margin-block: 3rem;
+    justify-content: space-between;
+    
+    .score{
+      text-align: center;
+      padding-top: 2rem;
+
+      h1{
+        font-size: 10rem;
+        font-family: 'Roboto';
+      }
+      p{
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+    .select-number{
+      display: flex;
+      flex-direction: column;
+
+      .warning{
+        color: hsla(0, 100%, 50%, 0.63);
+        margin-bottom: 1rem;
+      }
+
+      .inputs{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+        
+        li{
+          font-weight: 700;
+          padding: 2.5rem 3rem;
+          font-size: 1.8rem;
+          border: 1px solid var(--black);
+          cursor: pointer; 
+          background-color: var(--white);
+          transition: all .15s ease;
+        }
+        li:hover{
+          filter: brightness(80%);
+        }
+        .chosen-one{
+          background-color: var(--black);
+          color: white;
+        }
+      }
+      p{
+        font-weight: 700;
+        font-size: 2rem;
+        margin-left: auto;
+      }
+    }
+  }
+  .bottom-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    margin-block: 5rem;
+
+    figure{
+      cursor: pointer;
+    }
+    button:nth-of-type(1):hover{
+      filter: brightness(80%);
+    }
+    button:nth-of-type(2){
+      background-color: var(--black);
+      color: var(--white);
+
+      &:hover{
+        background-color: var(--white);
+        color: var(--black);
+      }
+    }
+  }
+  .rules{
+    margin: 5rem auto 10rem;
+    overflow: hidden;
+    height: 0;
+    transition: all 1s ease;
+
+    h2{
+      margin-bottom: 2rem;
+    }
+    p{
+      margin-bottom: .5rem;
+    }
+  }
+}
+/* End Game Section  */
+
+/* Media Section  */
+@media (width < 1200px ){
+  html{
+    font-size: 58.5%;
+  }
+  .section-home .texts{
+
+    h2{
+      font-size: 8rem;
+    }
+  }
+  
+}
+@media (width < 900px ){
+  html{
+    font-size: 55%;
+  }
+  .section-home .texts{
+
+    h2{
+      font-size: 7rem;
+    }
+  }
+  .section-game{
+    
+    .top-section{
+      flex-direction: column;
+
+      .inputs{
+        justify-content: center;
+        align-items: center;
+      } 
+    }
+  }
+  .section-game .bottom-section figure img{
+    max-width: 25rem;
+  }
+  .section-game .top-section p{
+    margin-left: 0 !important;
+    text-align: center;
+  }
+  .section-game .top-section .select-number .inputs{
+    place-items: center;
+
+    li{
+      min-width: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+@media (width < 760px ){
+  html{
+    font-size: 52.5%;
+  }
+  .section-home{
+    flex-direction: column;
+    gap: 3rem;
+    
+    figure{
+      padding-inline: 10rem;
+    }
+    .texts button{
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+  .section-game .bottom-section figure img{
+    max-width: 20rem;
+  }
+  .section-game .top-section .select-number .inputs{
+    grid-template-columns: repeat(3, 1fr);
+
+    li{
+      min-width: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+@media (width < 580px ){
+  html{
+    font-size: 50%;
+  }
+  .section-home{
+    gap: 5rem;
+
+    .texts h2{
+      font-size: 6rem;
+    }
+  }
+}
+/* End Media Section  */
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
+  }
+}
+@keyframes blink{
+  50%{
+    border-color: transparent;
+  }
+}
