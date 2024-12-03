@@ -174,7 +174,10 @@ button{
   button{
     font-size: 1.4rem;
     padding: .5rem 2rem;
-
+    
+    a{
+      color: var(--black);
+    }
     &:hover{
       background-color: var(--black);
       color: var(--white);
